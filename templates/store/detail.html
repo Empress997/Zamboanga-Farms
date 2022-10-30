@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="py-5">
+    <div class="container py-5">
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <!-- PRODUCT SLIDER-->
+          <div class="row m-sm-0">
+            
+            <div class="col-sm-12 order-1 order-sm-2">
+              <div class="owl-carousel product-slider" data-slider-id="1">
+                {% if crop.crop_image %}
+                  <a class="d-block" href="{{crop.crop_image.url}}" data-lightbox="product" title="{{crop.title}}"><img class="img-fluid" src="{{crop.crop_image.url}}" alt="{{crop.title}}"></a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- PRODUCT DETAILS-->
+        <div class="col-lg-6">
+          <h1>{{crop.title}}</h1>
+          <p class="text-muted lead">Crop Description</p>
+          <p class="text-small mb-4" align="justify">{{crop.crop_description }}</p>
+          <ul class="list-unstyled small d-inline-block">
+            <li class="px-3 py-2 mb-1 bg-white text-muted"><strong class="text-uppercase text-dark">Category:</strong><a class="reset-anchor ml-2" href="#">{{crop.category}}</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- DETAILS TABS-->
+      <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+        <li class="nav-item"><a class="nav-link active" id="preparation-tab" data-toggle="tab" href="#preparation" role="tab" aria-controls="preparation" aria-selected="true">Crop Preparation</a></li>
+        <li class="nav-item"><a class="nav-link" id="planting-tab" data-toggle="tab" href="#planting" role="tab" aria-controls="planting" aria-selected="false">Crop Planting</a></li>
+        <li class="nav-item"><a class="nav-link" id="manage-tab" data-toggle="tab" href="#manage" role="tab" aria-controls="manage" aria-selected="false">Pest & Disease Management</a></li>
+        <li class="nav-item"><a class="nav-link" id="risk-tab" data-toggle="tab" href="#risk" role="tab" aria-controls="risk" aria-selected="false">Risk Assessment</a></li>
+      </ul>
+      <div class="tab-content mb-5" id="myTabContent">
+        <div class="tab-pane fade show active" id="preparation" role="tabpanel" aria-labelledby="preparation-tab">
+          <div class="p-4 p-lg-5 bg-white">
+            <div class="card mb-4" id="forms">
+              <div class="card-header">
+                <small>
+                Crop Preparation Section 
+                </small>
+              </div>
+            <div class="card-body">
+              <p class="text-muted text-small mb-0" align="justify">{{crop.crop_preparation|linebreaks}}</p>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="planting" role="tabpanel" aria-labelledby="planting-tab">
+            <div class="p-4 p-lg-5 bg-white">
+                <h6 class="text-uppercase">Crop Planting </h6>
+                <p class="text-muted text-small mb-0" align="justify">{{crop.crop_planting|linebreaks}}</p>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="manage" role="tabpanel" aria-labelledby="manage-tab">
+            <div class="p-4 p-lg-5 bg-white">
+                <h6 class="text-uppercase">Pest & Disease Management</h6>
+                <p class="text-muted text-small mb-0" align="justify">{{crop.crop_management|linebreaks}}</p>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="risk" role="tabpanel" aria-labelledby="risk-tab">
+          <div class="p-4 p-lg-5 bg-white">
+              <h6 class="text-uppercase">Risk Assessment</h6>
+              <br>
+              {% if total_rain < total_dry %}
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Risk Assessment Pest Dry Season</th>
+                    <th scope="col">Control & Prevention</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">{{crop.risk_dry_pest|linebreaks}}</th>
+                    <th scope="row">{{crop.prevention_dry_pest|linebreaks}}</th>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Risk Assessment Disease  Dry Season</th>
+                    <th scope="col">Control & Prevention</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">{{crop.risk_dry_disease|linebreaks}}</th>
+                    <th scope="row">{{crop.prevention_dry_disease|linebreaks}}</th>
+                  </tr>
+                </tbody>
+              </table>
+              {% else %}
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Risk Assessment Pest Rainy Season</th>
+                    <th scope="col">Control & Prevention</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">{{crop.risk_rainy_pest|linebreaks}}</th>
+                    <th scope="row">{{crop.prevention_rainy_pest|linebreaks}}</th>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Risk Assessment Disease Rainy Season</th>
+                    <th scope="col">Control & Prevention</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">{{crop.risk_rainy_disease|linebreaks}}</th>
+                    <th scope="row">{{crop.prevention_rainy_disease|linebreaks}}</th>
+                  </tr>
+                </tbody>
+              </table>
+              {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock content %}

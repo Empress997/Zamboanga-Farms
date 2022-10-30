@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class = "container py-5">
+    <section class = "py-5">
+      <p>30 Day Weather Forecast</p>
+      <div class="row">
+        <div class="col">
+          <div class = "card mb-4">
+            <div class = "card-header justify-content-center text-center">
+              <p>{{format_date_1}}</p>
+              <h5 class="mb-0 font-weight-bold text-center"> {{temperature}}&deg; C </h5>
+              <span class="small grey text-uppercase">{{description}}</span>
+            </div>
+            <div class = "card-body">
+              <p class="my-1">
+                <i class="fa-solid fa-wind"></i>
+               <span> {{speed}} m/s</span>
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-cloud"></i>
+               <span> {{cloud}} %</span> 
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-droplet"></i>
+               <span> {{rainfall}} mm</span> 
+            </p>
+            </div>
+          </div>
+        </div>
+        <div class='w-100 d-md-none'></div>
+        <div class="col">
+          <div class = "card mb-4">
+            <div class = "card-header justify-content-center text-center">
+              <p>{{format_date_2}}</p>
+              <h5 class="mb-0 font-weight-bold text-center"> {{temperature_2}}&deg; C </h5>
+              <span class="small grey text-uppercase">{{description_2}}</span>
+            </div>
+            <div class = "card-body">
+              <p class="my-1">
+                <i class="fa-solid fa-wind"></i>
+               <span> {{speed_2}} m/s</span>
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-cloud"></i>
+               <span> {{cloud_2}} %</span> 
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-droplet"></i>
+               <span> {{rainfall_2}} mm</span> 
+            </p>
+            </div>
+          </div>
+        </div>
+        <div class='w-100 d-md-none'></div>
+        <div class="col">
+          <div class = "card mb-4">
+            <div class = "card-header justify-content-center text-center">
+              <p>{{format_date_3}}</p>
+              <h5 class="mb-0 font-weight-bold text-center"> {{temperature_3}}&deg; C </h5>
+              <span class="small grey text-uppercase">{{description_3}}</span>
+            </div>
+            <div class = "card-body">
+              <p class="my-1">
+                <i class="fa-solid fa-wind"></i>
+               <span> {{speed_3}} m/s</span>
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-cloud"></i>
+               <span> {{cloud_3}} %</span> 
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-droplet"></i>
+               <span> {{rainfall_3}} mm</span> 
+            </p>
+            </div>
+          </div>
+        </div>
+        <div class='w-100 d-md-none'></div>
+        <div class="col">
+          <div class = "card mb-4">
+            <div class = "card-header justify-content-center text-center">
+              <p>{{format_date_4}}</p>
+              <h5 class="mb-0 font-weight-bold text-center"> {{temperature_4}}&deg; C </h5>
+              <span class="small grey text-uppercase">{{description_4}}</span>
+            </div>
+            <div class = "card-body">
+              <p class="my-1">
+                <i class="fa-solid fa-wind"></i>
+               <span> {{speed_4}} m/s</span>
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-cloud"></i>
+               <span> {{cloud_4}} %</span> 
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-droplet"></i>
+               <span> {{rainfall_4}} mm</span> 
+            </p>
+            </div>
+          </div>
+        </div>
+        <div class='w-100 d-md-none'></div>
+        <div class="col">
+          <div class = "card mb-4">
+            <div class = "card-header justify-content-center text-center">
+              <p>{{format_date_5}}</p>
+              <h5 class="mb-0 font-weight-bold text-center"> {{temperature_5}}&deg; C </h5>
+              <span class="small grey text-uppercase">{{description_5}}</span>
+            </div>
+            <div class = "card-body">
+              <p class="my-1">
+                <i class="fa-solid fa-wind"></i>
+               <span> {{speed_5}} m/s</span>
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-cloud"></i>
+               <span> {{cloud_5}} %</span> 
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-droplet"></i>
+               <span> {{rainfall_5}} mm</span> 
+            </p>
+            </div>
+          </div>
+        </div>
+        <div class='w-100 d-md-none'></div>
+        <div class="col">
+          <div class = "card mb-4">
+            <div class = "card-header justify-content-center text-center">
+              <p>{{format_date_6}}</p>
+              <h5 class="mb-0 font-weight-bold text-center"> {{temperature_6}}&deg; C </h5>
+              <span class="small grey text-uppercase">{{description_6}}</span>
+            </div>
+            <div class = "card-body">
+              <p class="my-1">
+                <i class="fa-solid fa-wind"></i>
+               <span> {{speed_6}} m/s</span>
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-cloud"></i>
+               <span> {{cloud_6}} %</span> 
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-droplet"></i>
+               <span> {{rainfall_6}} mm</span> 
+            </p>
+            </div>
+          </div>
+        </div>
+        <div class='w-100 d-md-none'></div>
+        <div class="col">
+          <div class = "card mb-4">
+            <div class = "card-header justify-content-center text-center">
+              <p>{{format_date_7}}</p>
+              <h5 class="mb-0 font-weight-bold text-center"> {{temperature_7}}&deg; C </h5>
+              <span class="small grey text-uppercase">{{description_7}}</span>
+            </div>
+            <div class = "card-body">
+              <p class="my-1">
+                <i class="fa-solid fa-wind"></i>
+               <span> {{speed_7}} m/s</span>
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-cloud"></i>
+               <span> {{cloud_7}} %</span> 
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-droplet"></i>
+               <span> {{rainfall_7}} mm</span> 
+            </p>
+            </div>
+          </div>
+        </div>
+        <div class='w-100 d-md-none'></div>
+        <div class="col">
+          <div class = "card mb-4">
+            <div class = "card-header justify-content-center text-center">
+              <p>{{format_date_8}}</p>
+              <h5 class="mb-0 font-weight-bold text-center"> {{temperature_8}}&deg; C </h5>
+              <span class="small grey text-uppercase">{{description_8}}</span>
+            </div>
+            <div class = "card-body">
+              <p class="my-1">
+                <i class="fa-solid fa-wind"></i>
+               <span> {{speed_8}} m/s</span>
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-cloud"></i>
+               <span> {{cloud_8}} %</span> 
+            </p>
+            <p class="my-1"> 
+              <i class="fa-solid fa-droplet"></i>
+               <span> {{rainfall_8}} mm</span> 
+            </p>
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+    </section>
+  </div>
+{% endblock content%}

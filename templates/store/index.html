@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+
+    <div class="bg-overlay"></div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-8 col-md-10 mx-auto col-12">
+                <div class="hero-text mt-5 text-center">
+
+                    <!--<h6 data-aos="fade-up" data-aos-delay="300">new way to build a healthy lifestyle!</h6>-->
+
+                    <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Crops exist in the weather and light rays that surround them.</h1>
+                    <p class="text-white" data-aos="fade-up" data-aos-delay="500">Help's you manage your plants and encourages you to do gardening in your area.</p>
+                    <a href="{% url 'farms:categories' %}" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700">Get Started</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class = "services-area bg-gray section-padding-100-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Section Heading -->
+                <div class="section-heading text-center">
+                    <h2>OUR SERVICES</h2>
+                    <p>We provide the steps to minimize the risk of crop planting!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-between" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-12 col-lg-5">
+            <div class="single-service-area d-flex align-items-center">
+                <!-- Icon -->
+                <!-- Content -->
+                <div class="service-content">
+                    <h5>Crops Care</h5>
+                    <p>All of your crops will be cared for in a methodical manner with the assistance of a certified agriculturist.</p>
+                </div>
+            </div>
+            <div class="single-service-area d-flex align-items-center">
+                <!-- Icon -->
+                <!-- Content -->
+                <div class="service-content">
+                    <h5>Weather Monitoring</h5>
+                    <p>We'll give you recommendations on the best crop to plant for the month based on real-time weather and flood level monitoring.</p>
+                </div>
+            </div>
+            <div class="single-service-area d-flex align-items-center">
+                <!-- Icon -->
+                <!-- Content -->
+                <div class="service-content">
+                    <h5>Crop Planting &amp; Introduction</h5>
+                                <p>We'll guide you through the process of planting crops, as well as introduce you to crop care and crop maintenance.</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+</section>
+<section class="contact-area section-padding-100-0">
+    <div class="container">
+        <hr>
+        <div class="row align-items-center justify-content-between">
+            <div class="col-12 col-lg-5">
+                <!-- Section Heading -->
+                <div class="section-heading">
+                    <h2>GET IN TOUCH</h2>
+                    <p>Send us a message, we will call back later</p>
+                </div>
+                <!-- Contact Form Area -->
+                <div class="contact-form-area mb-100">
+                    <form method="post" action="">
+                        <fieldset>
+                          {% csrf_token %}
+              
+                          {% for fm in form %}
+                              <div class="form-group">
+                                  {{fm.label_tag}}
+                                  {{fm}}
+                                  <small class="text-danger">{{fm.errors|striptags}}</small>
+                              </div>
+                          {% endfor %}
+                          <button class="btn btn-primary" type="submit">Submit</button>
+                        </fieldset>
+              
+                        {% if form.non_field_errors %}
+                          {% for error in non_field_errors %}
+                              <p class="alert alert-danger my-3">
+                                  {{error}}
+                              </p>
+                          {% endfor %}
+                        {% endif %}
+              
+                      </form>
+                      <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

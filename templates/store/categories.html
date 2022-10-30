@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class = "container py-5">
+    <section class = "py-5">
+    <header>
+      <p class="small text-muted small text-uppercase mb-1">Recommended Crops</p>
+      <h2 class="h5 text-uppercase mb-4">Best crops for planting</h2>
+    </header>
+    <div class="row">
+        {% if total_rain < total_dry %}
+            {% for crop in crops_dry %}
+            <div class="col-lg-3 col-md-4 col-6">
+                <a href="{% url 'farms:crop-detail' crop.slug %}" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="{{ crop.crop_image.url }}" alt="{{g.description}}">
+                </a>
+              </div> 
+            {% endfor %}
+        {% else %}
+        {% for crop in crops_rainy %}
+            <div class="col-lg-3 col-md-4 col-6">
+                <a href="{% url 'farms:crop-detail' crop.slug %}" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="{{ crop.crop_image.url }}" alt="{{g.description}}">
+                </a>
+              </div> 
+            {% endfor %}
+        {% endif %}
+    </div>
+    <hr>
+    <header>
+        <p class="small text-muted small text-uppercase mb-1">Made For You</p>
+        <h2 class="h5 text-uppercase mb-4">List of crops</h2>
+      </header>
+      <div class="row">
+              {% for crop in crops %}
+              <div class="col-lg-3 col-md-4 col-6">
+                  <a href="{% url 'farms:crop-detail' crop.slug %}" class="d-block mb-4 h-100">
+                      <img class="img-fluid img-thumbnail" src="{{ crop.crop_image.url }}" alt="{{g.description}}">
+                  </a>
+                </div> 
+              {% endfor %}
+      </div>
+    <p>Total number of sunny: {{total_dry}} </p>
+    <p>Total number of rainy: {{total_rain}}</p>
+</section>
+</div>
+{% endblock content %}
